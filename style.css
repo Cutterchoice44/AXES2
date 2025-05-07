@@ -13,8 +13,8 @@
   --text-light: #fafafa;
 
   /* ─── Adjustable GIF Settings ─── */
-  --gif-height: 250px;     /* Change this to adjust height */
-  --gif-width: 25%;        /* Change this to adjust width */
+  --gif-height: 270px;     /* Change this to adjust height */
+  --gif-width: 18%;        /* Change this to adjust width */
   --gif-speed: 12s;        /* Change this to adjust speed */
   --gif-opacity: 1.6;      /* Change this to adjust opacity */
 }
@@ -656,3 +656,7 @@ section h2::after {
 .live-player audio {
   margin: 0 auto !important;     /* was 0 auto 1rem */
 }
+
+
+
+
