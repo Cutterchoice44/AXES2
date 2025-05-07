@@ -14,8 +14,9 @@
 
   /* ─── Adjustable GIF Settings ─── */
   --gif-height: 250px;     /* Change this to adjust height */
-  --gif-width: 20%;       /* Change this to adjust width */
-  --gif-speed: 15s;        /* Change this to adjust speed */
+  --gif-width: 25%;        /* Change this to adjust width */
+  --gif-speed: 12s;        /* Change this to adjust speed */
+  --gif-opacity: 1.6;      /* Change this to adjust opacity */
 }
 
 html, body {
@@ -28,7 +29,7 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ─── HEADER WITH ANIMATED GIF ────────────────────────────────────────────── */
+/* ─── HEADER WITH ANIMATED GIFS ────────────────────────────────────────────── */
 .header-banner {
   position: relative;
   height: var(--gif-height);
@@ -38,25 +39,50 @@ html, body {
   overflow: hidden;
 }
 
-.header-gif {
+/* FIRST GIF (RIGHT TO LEFT) */
+.header-gif-right {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 50%; /* Start fully off-screen right */
   height: var(--gif-height);
-  width: var(--gif-width); /* Fully controlled by CSS variable */
-  opacity: 1.6;
+  width: var(--gif-width);
+  opacity: var(--gif-opacity);
   z-index: 0;
-  object-fit: cover;
-  animation: slideAnimation var(--gif-speed) linear infinite alternate;
+  background: url('https://cutterschoiceradio.com/Untitled%20design%284%29.gif') no-repeat center center;
+  background-size: cover;
+  animation: slideRightToLeft var(--gif-speed) linear infinite;
 }
 
-/* ─── ANIMATION ───────────────────────────────────────────────────────────── */
-@keyframes slideAnimation {
+/* SECOND GIF (LEFT TO RIGHT) */
+.header-gif-left {
+  position: absolute;
+  top: 0;
+  right: 50%; /* Start fully off-screen left */
+  height: var(--gif-height);
+  width: var(--gif-width);
+  opacity: var(--gif-opacity);
+  z-index: 0;
+  background: url('https://cutterschoiceradio.com/Untitled%20design%285%29.gif') no-repeat center center;
+  background-size: cover;
+  animation: slideLeftToRight var(--gif-speed) linear infinite;
+}
+
+/* ─── ANIMATIONS ───────────────────────────────────────────────────────────── */
+@keyframes slideRightToLeft {
   0% {
-    transform: translateX(-100vw); /* Start fully off-screen left */
+    transform: translateX(100vw);
   }
   100% {
-    transform: translateX(100vw);  /* Move fully across to the right */
+    transform: translateX(-100vw);
+  }
+}
+
+@keyframes slideLeftToRight {
+  0% {
+    transform: translateX(-100vw);
+  }
+  100% {
+    transform: translateX(100vw);
   }
 }
 header::before {
